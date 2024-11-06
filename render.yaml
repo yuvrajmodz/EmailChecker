@@ -1,0 +1,41 @@
+services:
+  - type: web
+    name: email-verifier
+    env: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python -m playwright install
+    startCommand: nohup python app.py &
+
+    envVars:
+      - key: PORT
+        value: "5015"
+
+    # Optional, to ensure the service runs on Render's internal IP address and port
+    port: 5015
+
+    build:
+      install:
+        packages:
+          - libgbm-dev
+          - libxshmfence-dev
+          - libasound2
+          - libatk1.0-0
+          - libatk-bridge2.0-0
+          - libcups2
+          - libdrm2
+          - libxdamage1
+          - libxrandr2
+          - libgbm1
+          - libxcomposite1
+          - libxfixes3
+          - libxshmfence1
+          - libxcursor1
+
+# Specify your Python requirements
+files:
+  - path: requirements.txt
+    contents: |
+      Flask
+      beautifulsoup4
+      playwright
