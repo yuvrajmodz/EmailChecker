@@ -9,10 +9,10 @@ services:
 
     envVars:
       - key: PORT
-        value: "5015"
+        value: "5000"
 
     # Optional, to ensure the service runs on Render's internal IP address and port
-    port: 5015
+    port: 5000
 
     build:
       install:
