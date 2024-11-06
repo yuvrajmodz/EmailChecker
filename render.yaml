@@ -5,7 +5,7 @@ services:
     buildCommand: |
       pip install -r requirements.txt
       python -m playwright install
-    startCommand: nohup python app.py &
+    startCommand: python3 app.py
 
     envVars:
       - key: PORT
